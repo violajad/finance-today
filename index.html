@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Today</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    /* ===== General Styles ===== */
+    body {
+      font-family: serif;
+      background-color: white;
+      color: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+
+    /* Dropdown */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: black;
+      text-decoration: none;
+    }
+
+    .dropdown-content a.active {
+      background-color: #0073e6;
+      color: white;
+    }
+
+    li:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Welcome Section */
+    .welcome {
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .welcome h1 {
+      font-size: 2rem;
+      opacity: 0;
+      transition: opacity 2s ease-in;
+    }
+
+    .welcome h1.fade-in {
+      opacity: 1;
+    }
+
+    /* Scroll hint */
+    .scroll-hint {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Charts Section */
+    .charts-container {
+      display: flex;
+      justify-content: space-around;
+      padding: 2rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .stock-card {
+      width: 45%;
+      min-width: 300px;
+    }
+
+    .graph {
+      width: 100%;
+      height: 400px;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    .graph.visible {
+      opacity: 1;
+    }
+
+    .live-price {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #0073e6;
+    }
+
+    /* About Me Section */
+    .about-me {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about-me a {
+      color: #0073e6;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <nav>
+    <div class="logo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Finance Today</div>
+    <ul>
+      <li class="dropdown">
+        <a>Jadon's Top Picks</a>
+        <div class="dropdown-content">
+          <a href="#">NVDA</a>
+          <a href="#">AAPL</a>
+          <a href="#">MSFT</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a>Trending Stocks</a>
+        <div class="dropdown-content">
+          <a href="#">SPY</a>
+          <a href="#">QQQ</a>
+          <a href="#">DIA</a>
+        </div>
+      </li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#interviews">Interviews</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Welcome Section ===== -->
+  <section class="welcome">
+    <h1>Welcome to<br>Finance Today</h1>
+    <div class="scroll-hint">Scroll for more &#x2193;</div>
+  </section>
+
+  <!-- ===== Charts Section ===== -->
+  <section class="charts-container">
+    <div class="stock-card">
+      <h3 id="graph1-name">NVDA</h3>
+      <div id="price1" class="live-price">$0.00</div>
+      <div id="graph1" class="graph"></div>
+    </div>
+    <div class="stock-card">
+      <h3 id="graph2-name">SPY</h3>
+      <div id="price2" class="live-price">$0.00</div>
+      <div id="graph2" class="graph"></div>
+    </div>
+  </section>
+
+  <!-- ===== About Me Section ===== -->
+  <section class="about-me" id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm Jadon! I’m passionate about financial markets and analyzing stocks. This site showcases my personal research and top stock picks.</p>
+    <p>
+      <a href="your_resume.pdf" target="_blank">Resume</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+      <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+    </p>
+  </section>
+
+  <!-- ===== Interviews Section (placeholder) ===== -->
+  <section class="about-me" id="interviews">
+    <h2>Interviews</h2>
+    <p>Coming soon!</p>
+  </section>
+
+  <!-- ===== Scripts ===== -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
